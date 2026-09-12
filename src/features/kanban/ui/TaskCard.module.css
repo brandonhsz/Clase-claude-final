@@ -1,0 +1,46 @@
+.card {
+  background: var(--kb-card-bg);
+  border-radius: 13px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: grab;
+  box-shadow: 0 1px 2px oklch(0.2 0 0 / 0.05);
+  border: 1px solid var(--kb-card-border);
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px -8px oklch(0.2 0 0 / 0.18);
+  border-color: var(--kb-card-hover-border);
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--kb-text-primary);
+  line-height: 1.35;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assignee {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.due {
+  font-size: 12px;
+  color: var(--kb-text-secondary);
+}

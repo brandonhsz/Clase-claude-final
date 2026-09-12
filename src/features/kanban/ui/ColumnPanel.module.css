@@ -1,0 +1,76 @@
+.column {
+  width: 290px;
+  min-width: 290px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--kb-panel-bg);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accentDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--kb-text-primary);
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--kb-text-secondary);
+  background: var(--kb-badge-bg);
+  border-radius: 20px;
+  padding: 2px 9px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 12px;
+}
+
+.empty {
+  font-size: 12px;
+  color: var(--kb-text-muted);
+  text-align: center;
+  padding: 14px 0;
+}
+
+.addButton {
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--kb-text-secondary);
+  padding: 6px 4px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.addButton:hover {
+  background: var(--kb-add-hover);
+  color: var(--kb-text-primary);
+}

@@ -1,0 +1,61 @@
+schema: spec-driven
+
+context: |
+  Tech stack: React 19.3.0 + TypeScript 6.0.3, Vite 8.3.0 (@vitejs/plugin-react 6.1.1)
+  Package manager: pnpm 10.33.0, Node 24.14.0
+  Linter: oxlint 1.82.0 (NOT ESLint)
+  Architecture: single-page React app, no router/state manager yet
+  Testing: Vitest + React Testing Library + jsdom (installed in add-kanban-board Phase 1)
+
+strict_tdd: true
+# Test runner installed in add-kanban-board Phase 1 (Vitest resolved cleanly
+# against Vite 8.3.0; no mergeConfig fallback was needed). Strict TDD is now
+# enforced for the remainder of that change and beyond.
+
+testing:
+  test_command: "pnpm test"
+  build_command: "pnpm build"
+  lint_command: "pnpm lint"
+  coverage_threshold: 0
+  layers:
+    unit: true
+    integration: true
+    e2e: false
+  quality_tools:
+    linter: "oxlint (pnpm lint)"
+    type_checker: "tsc -b (part of pnpm build)"
+    formatter: none
+
+session_preflight:
+  execution_mode: auto
+  artifact_store: openspec
+  delivery_strategy: single-pr
+  review_budget_lines: 1000000  # user explicitly chose "no limit"; review workload guard is effectively disabled by this decision
+  chain_strategy: not applicable (single-pr)
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - State whether the change is exempt from the OpenSpec flow (typo/formatting fixes, no-API dependency bumps, edits to CLAUDE.md only)
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    guidelines:
+      - Follow existing code patterns
+      - One component per file, PascalCase file names for components
+      - Prefer editing existing files over creating new ones; no proactive docs
+    tdd: true
+    test_command: "pnpm test"
+  verify:
+    test_command: "pnpm test"
+    build_command: "pnpm build"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas
